@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    background: #ffd6eb;
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app {
+    background: #fff0f7;
+    padding: 30px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border: 4px solid #ffffff;
+}
+
+h1 {
+    font-size: 14px;
+    color: #ff4fa3;
+    margin-bottom: 20px;
+}
+
+.character {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: 0 auto 20px auto;
+    background: white; /* Helpful to see the boundary */
+    border-radius: 15px;
+}
+
+.layer {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.controls {
+    margin-top: 15px;
+}
+
+.row {
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    background: #ff8fcf;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 12px;
+    cursor: pointer;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #ff4fa3;
+    transform: scale(1.1);
+}
+
+span {
+    font-size: 10px;
+    color: #ff4fa3;
+    width: 80px;
+}

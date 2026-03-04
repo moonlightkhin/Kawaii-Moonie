@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawaii Dress Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+    <h1>Dress Up Moonie ✨</h1>
+
+    <div class="character">
+        <img src="base.png" class="layer">        
+        <img id="shoes" src="shoes1.png" class="layer">
+        <img id="dress" src="dress1.png" class="layer">
+        <img id="hat" src="hat1.png" class="layer">
+    </div>
+
+    <div class="controls">
+        <div class="row">
+            <button onclick="prevHat()">◀</button>
+            <span>Hat</span>
+            <button onclick="nextHat()">▶</button>
+        </div>
+
+        <div class="row">
+            <button onclick="prevDress()">◀</button>
+            <span>Dress</span>
+            <button onclick="nextDress()">▶</button>
+        </div>
+
+        <div class="row">
+            <button onclick="prevShoes()">◀</button>
+            <span>Shoes</span>
+            <button onclick="nextShoes()">▶</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
