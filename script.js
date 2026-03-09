@@ -9,9 +9,8 @@ const MAX_SHOES = 4;
 
 const music = document.getElementById("bg-music");
 const musicBtn = document.getElementById("music-btn");
-music.loop = true; 
+music.loop = true;
 
-// Toggle Music
 function toggleMusic() {
     if (isPlaying) {
         music.pause();
@@ -19,41 +18,37 @@ function toggleMusic() {
     } else {
         music.play().then(() => {
             musicBtn.innerText = "🎵 ON";
-        }).catch(err => alert("Please upload 'music.mp3' to your folder!"));
+        }).catch(err => console.log("Music blocked or missing"));
     }
     isPlaying = !isPlaying;
 }
 
-// Save Photo Logic
 function savePhoto() {
-    const container = document.querySelector(".character-container");
-    const musicBtn = document.getElementById("music-btn");
+    const container = document.getElementById("capture-area");
+    const mBtn = document.getElementById("music-btn");
 
-
-    musicBtn.style.visibility = "hidden";
+    mBtn.style.display = "none"; // Hide button for the photo
 
     html2canvas(container, {
         backgroundColor: "#fffcfd",
-        scale: 2, 
+        scale: 3, // High resolution
+        useCORS: true // Helps with loading images
     }).then(canvas => {
-        musicBtn.style.visibility = "visible";
+        mBtn.style.display = "block"; // Show button back
         const link = document.createElement("a");
-        link.download = "my-moonie-outfit.png";
+        link.download = "my-moonie.png";
         link.href = canvas.toDataURL("image/png");
         link.click();
     });
 }
 
-// Clothing Update
 function updateImage(id, category, index) {
     document.getElementById(id).src = `${category}${index}.png`;
 }
 
 function nextHat() { hatIndex = (hatIndex % MAX_HATS) + 1; updateImage("hat", "hat", hatIndex); }
 function prevHat() { hatIndex = (hatIndex - 2 + MAX_HATS) % MAX_HATS + 1; updateImage("hat", "hat", hatIndex); }
-
 function nextDress() { dressIndex = (dressIndex % MAX_DRESSES) + 1; updateImage("dress", "dress", dressIndex); }
 function prevDress() { dressIndex = (dressIndex - 2 + MAX_DRESSES) % MAX_DRESSES + 1; updateImage("dress", "dress", dressIndex); }
-
 function nextShoes() { shoesIndex = (shoesIndex % MAX_SHOES) + 1; updateImage("shoes", "shoes", shoesIndex); }
 function prevShoes() { shoesIndex = (shoesIndex - 2 + MAX_SHOES) % MAX_SHOES + 1; updateImage("shoes", "shoes", shoesIndex); }
