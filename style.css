@@ -1,106 +1,38 @@
-body {
-    margin: 0;
-    padding: 0;
-    background: #ffd6eb;
-    font-family: 'Press Start 2P', cursive;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.app {
-    background: white;
-    width: 92vw;
-    max-width: 360px;
-    margin-top: 15px;
-    padding: 15px;
-    border-radius: 40px;
-    text-align: center;
-    border: 6px solid #ffb7df;
-    position: relative;
-    box-shadow: 0 10px 0px #ffb7df;
-}
-
-/* Music Toggle Button Style */
+/* Music Button - Bottom Right of Dotted Frame */
 #music-btn {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    bottom: 10px;
+    right: 10px;
     width: auto;
     height: auto;
-    padding: 5px 10px;
-    font-size: 8px;
-    border-radius: 10px;
+    padding: 5px 8px;
+    font-size: 7px; /* Tiny and cute */
+    border-radius: 8px;
     z-index: 100;
+    box-shadow: 0 2px 0px #ff8fcf;
 }
 
-.header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin-top: 25px; /* Space for music button */
-    margin-bottom: 10px;
-}
-
-.pixel-title {
-    font-size: 14px;
-    color: #ff69b4;
-    text-shadow: 2px 2px #ffd6eb;
-}
-
+/* Character Container */
 .character-container {
     position: relative;
     background: #fffcfd;
     border-radius: 30px;
-    height: 52vh; /* Slightly smaller to pull buttons up */
+    height: 50vh;
     border: 4px dashed #ffd6eb;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.character-scaler { transform: scale(1.7); }
+/* Flowers - Coordinates adjusted to avoid the character's center */
+.f1 { top: 8%; left: 8%; }    /* Top Left */
+.f2 { top: 8%; right: 8%; }   /* Top Right */
+.f3 { bottom: 15%; left: 10%; } /* Mid-Bottom Left */
+.f4 { top: 40%; right: 5%; }   /* Mid-Right */
 
-.character { position: relative; width: 200px; height: 250px; }
-.layer { position: absolute; width: 100%; left: 0; top: 0; image-rendering: pixelated; }
-
-/* Twinkle elements positioned at corners */
-.star, .twinkle-flower { position: absolute; z-index: 10; animation: twinkleAnim 2s infinite ease-in-out; }
-.star { color: #ffe135; font-size: 18px; }
-.twinkle-flower { font-size: 20px; }
-
-/* Fixed coordinates to NOT cover Moonie */
-.s1 { top: 5%; left: 5%; }
-.s2 { top: 5%; right: 5%; animation-delay: 0.5s; }
-.f1 { bottom: 5%; left: 5%; animation-delay: 1s; }
-.f2 { bottom: 5%; right: 5%; animation-delay: 1.5s; }
-.s3 { top: 45%; left: 2%; animation-delay: 0.2s; }
-.f3 { top: 45%; right: 2%; animation-delay: 0.8s; }
-.f4 { bottom: 30%; left: 8%; animation-delay: 1.2s; }
-
+/* The rest of your animations remain the same */
 @keyframes twinkleAnim {
     0%, 100% { opacity: 0.3; transform: scale(0.8); }
     50% { opacity: 1; transform: scale(1.1); }
 }
-
-.controls { display: flex; flex-direction: column; gap: 10px; }
-.row { display: flex; justify-content: space-around; align-items: center; background: #fff3f8; border-radius: 20px; padding: 6px; }
-
-button {
-    background: #ffb7df;
-    border: 3px solid #ffffff;
-    width: 45px;
-    height: 45px;
-    border-radius: 15px;
-    cursor: pointer;
-    color: white;
-    font-size: 18px;
-    box-shadow: 0 4px 0 #ff8fcf;
-}
-
-button:active { transform: translateY(3px); box-shadow: 0 1px 0 #ff8fcf; }
-.label { font-size: 10px; color: #ff69b4; min-width: 80px; }

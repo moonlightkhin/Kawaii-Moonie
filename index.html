@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Dress Up Moonie ✨</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
 <div class="app">
-    <button id="music-btn" onclick="toggleMusic()">🎵 OFF</button>
-
     <div class="header">
         <span class="sparkle">✨</span>
         <h1 class="pixel-title">Dress Up Moonie</h1>
@@ -19,6 +6,8 @@
     </div>
     
     <div class="character-container">
+        <button id="music-btn" onclick="toggleMusic()">🎵 OFF</button>
+
         <div class="star s1">★</div>
         <div class="star s2">✦</div>
         <div class="star s3">★</div>
@@ -40,28 +29,10 @@
     </div>
 
     <div class="controls">
-        <div class="row">
-            <button onclick="prevHat()">❮</button>
-            <span class="label">HAT</span>
-            <button onclick="nextHat()">❯</button>
-        </div>
-        <div class="row">
-            <button onclick="prevDress()">❮</button>
-            <span class="label">DRESS</span>
-            <button onclick="nextDress()">❯</button>
-        </div>
-        <div class="row">
-            <button onclick="prevShoes()">❮</button>
-            <span class="label">SHOES</span>
-            <button onclick="nextShoes()">❯</button>
-        </div>
+        <div class="row"><button onclick="prevHat()">❮</button><span class="label">HAT</span><button onclick="nextHat()">❯</button></div>
+        <div class="row"><button onclick="prevDress()">❮</button><span class="label">DRESS</span><button onclick="nextDress()">❯</button></div>
+        <div class="row"><button onclick="prevShoes()">❮</button><span class="label">SHOES</span><button onclick="nextShoes()">❯</button></div>
     </div>
 </div>
 
-<audio id="bg-music" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<script src="script.js"></script>
-</body>
-</html>
+<audio id="bg-music" loop><source src="music.mp3" type="audio/mpeg"></audio>
