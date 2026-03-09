@@ -7,30 +7,64 @@ body {
     align-items: center;
     height: 100vh;
     overflow: hidden;
+    position: relative;
+}
+
+/* Twinkling Stars */
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+/* Different Star Sizes & Positions */
+.s1 { width: 4px; height: 4px; top: 20%; left: 10%; animation-delay: 0s; }
+.s2 { width: 8px; height: 8px; top: 70%; left: 80%; animation-delay: 1s; }
+.s3 { width: 6px; height: 6px; top: 40%; left: 90%; animation-delay: 1.5s; }
+.s4 { width: 10px; height: 10px; top: 80%; left: 15%; animation-delay: 0.5s; }
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1.2); }
 }
 
 .app {
     background: #fff0f7;
-    padding: 30px;
-    border-radius: 25px;
+    padding: 40px;
+    border-radius: 40px;
     text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    border: 4px solid #ffffff;
+    box-shadow: 0 15px 0px #ffb7df; /* 3D effect shadow */
+    border: 6px solid #ffffff;
+    position: relative;
 }
 
+/* Flower Elements */
+.flower {
+    position: absolute;
+    font-size: 24px;
+}
+.tl { top: -15px; left: -15px; }
+.tr { top: -15px; right: -15px; }
+.bl { bottom: -15px; left: -15px; }
+.br { bottom: -15px; right: -15px; }
+
 h1 {
-    font-size: 18px;
+    font-size: 18px; /* Slightly bigger */
     color: #ff4fa3;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px white;
 }
 
 .character {
     position: relative;
     width: 300px;
     height: 400px;
-    margin: 0 auto 20px auto;
-    background: white; /* Helpful to see the boundary */
-    border-radius: 15px;
+    margin: 0 auto 30px auto;
+    background: white;
+    border-radius: 30px;
+    border: 4px dashed #ffc0e0;
 }
 
 .layer {
@@ -40,39 +74,32 @@ h1 {
     top: 0;
 }
 
-.controls {
-    margin-top: 15px;
-}
-
-.row {
-    margin: 15px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
+/* Cuter Buttons */
 button {
     background: #ff8fcf;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 10px;
-    font-size: 12px;
+    border: 4px solid #ffffff;
+    padding: 12px 18px;
+    border-radius: 20px;
+    font-size: 16px; /* Bigger arrows */
     cursor: pointer;
     color: white;
     font-family: 'Press Start 2P', cursive;
-    transition: 0.2s;
+    box-shadow: 0 5px 0px #ff4fa3;
+    transition: all 0.1s;
+}
+
+button:active {
+    box-shadow: 0 2px 0px #ff4fa3;
+    transform: translateY(3px);
 }
 
 button:hover {
     background: #ff4fa3;
-    transform: scale(1.1);
 }
 
 span {
-    font-size: 10px;
+    font-size: 14px; /* Slightly bigger font */
     color: #ff4fa3;
-    width: 80px;
-
+    width: 100px;
+    font-weight: bold;
 }
-
-
