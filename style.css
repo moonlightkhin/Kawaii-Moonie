@@ -1,35 +1,57 @@
 body {
-    margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
     background: #ffd6eb;
     font-family: 'Press Start 2P', cursive;
-    display: flex; justify-content: center; align-items: flex-start;
-    height: 100vh; overflow: hidden;
+    display: flex;
+    justify-content: center;
+    
+    align-items: center; 
+    height: 100vh;
+    
+    padding-bottom: 40px; 
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .app {
-    background: white; width: 90vw; max-width: 360px;
-    margin-top: 15px; padding: 15px; border-radius: 40px;
-    text-align: center; border: 6px solid #ffb7df;
-    position: relative; box-shadow: 0 10px 0px #ffb7df;
+    background: white;
+    width: 90vw;
+    max-width: 350px;
+    margin: 20px auto; 
+    padding: 15px;
+    border-radius: 40px;
+    text-align: center;
+    border: 6px solid #ffb7df;
+    position: relative;
+    box-shadow: 0 10px 0px #ffb7df;
 }
 
 .pixel-title {
-    font-size: 15px; color: #ff69b4;
-    text-shadow: 2px 2px #ffd6eb; margin: 10px 0;
+    font-size: 14px;
+    color: #ff69b4;
+    text-shadow: 2px 2px #ffd6eb;
+    margin: 10px 0;
 }
 
 .character-container {
-    position: relative; background: #fffcfd;
-    border-radius: 30px; height: 48vh;
-    border: 4px dashed #ffd6eb; margin-bottom: 15px;
-    display: flex; justify-content: center; align-items: center;
+    position: relative;
+    background: #fffcfd;
+    border-radius: 30px;
+    
+    height: 45vh; 
+    border: 4px dashed #ffd6eb;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.character-scaler { transform: scale(1.7); }
+.character-scaler { transform: scale(1.6); }
 .character { position: relative; width: 200px; height: 250px; }
 .layer { position: absolute; width: 100%; left: 0; top: 0; image-rendering: pixelated; }
 
-/* Music Button Style */
+/* Music Button */
 #music-btn {
     position: absolute; bottom: 10px; right: 10px;
     background: #ffb7df; border: 2px solid white;
@@ -39,10 +61,17 @@ body {
 
 
 #save-btn {
-    margin-top: 15px; background: #b7ffda; border: 3px solid #ffffff;
-    width: 100%; padding: 10px; border-radius: 15px;
-    color: #33a873; font-family: 'Press Start 2P', cursive;
-    font-size: 10px; cursor: pointer; box-shadow: 0 4px 0 #89d6af;
+    margin-top: 10px; 
+    background: #b7ffda; 
+    border: 3px solid #ffffff;
+    width: 100%;
+    padding: 12px; 
+    border-radius: 15px;
+    color: #33a873;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #89d6af;
 }
 
 #save-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #89d6af; }
@@ -54,21 +83,21 @@ body {
 
 .s1 { top: 5%; left: 5%; }
 .s2 { top: 5%; right: 5%; }
-.s3 { bottom: 8%; left: 8%; } 
-.s4 { bottom: 40%; right: 2%; } 
+.s3 { bottom: 5%; left: 5%; }
+.s4 { top: 40%; right: 2%; }
 
-.f1 { top: 25%; left: 2%; }
-.f2 { top: 25%; right: 2%; }
-.f3 { bottom: 25%; left: 2%; }
-.f4 { bottom: 8%; right: 8%; }
+.f1 { top: 20%; left: 2%; }
+.f2 { top: 20%; right: 2%; }
+.f3 { bottom: 15%; left: 2%; }
+.f4 { bottom: 5%; right: 25%; }
 
 @keyframes twinkle {
     0%, 100% { opacity: 0.3; transform: scale(0.8); }
     50% { opacity: 1; transform: scale(1.1); }
 }
 
-.controls { display: flex; flex-direction: column; gap: 8px; }
-.row { display: flex; justify-content: space-around; align-items: center; background: #fff3f8; border-radius: 20px; padding: 6px; }
-button { background: #ffb7df; border: 3px solid #ffffff; width: 45px; height: 45px; border-radius: 12px; color: white; font-size: 18px; box-shadow: 0 4px 0 #ff8fcf; }
+.controls { display: flex; flex-direction: column; gap: 6px; }
+.row { display: flex; justify-content: space-around; align-items: center; background: #fff3f8; border-radius: 20px; padding: 4px; }
+button { background: #ffb7df; border: 3px solid #ffffff; width: 42px; height: 42px; border-radius: 12px; color: white; font-size: 16px; box-shadow: 0 4px 0 #ff8fcf; }
 button:active { transform: translateY(3px); box-shadow: 0 1px 0 #ff8fcf; }
-.label { font-size: 10px; color: #ff69b4; min-width: 80px; font-weight: bold; }
+.label { font-size: 9px; color: #ff69b4; min-width: 70px; font-weight: bold; }
