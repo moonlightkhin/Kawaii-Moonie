@@ -1,30 +1,47 @@
 body {
     margin: 0;
+    padding: 0;
     background: #ffd6eb;
     font-family: 'Press Start 2P', cursive;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Start from top to prevent bottom-cutoff */
     height: 100vh;
     overflow: hidden;
 }
 
 .app {
     background: white;
-    padding: 20px;
+    width: 90vw;
+    max-width: 360px;
+    margin-top: 20px; /* Space from top notch */
+    padding: 15px;
     border-radius: 40px;
     text-align: center;
     border: 6px solid #ffb7df;
     position: relative;
-    width: 340px; /* Slightly wider to fit buttons */
     box-shadow: 0 10px 0px #ffb7df;
 }
 
-h1 {
-    font-size: 14px;
+/* Cuter, Bigger Title */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.pixel-title {
+    font-size: 16px;
     color: #ff69b4;
-    margin: 15px 0;
-    text-shadow: 2px 2px #fff3f8;
+    text-shadow: 2px 2px #ffd6eb;
+    margin: 0;
+}
+
+.sparkle {
+    font-size: 18px;
+    animation: pulse 1s infinite;
 }
 
 /* BIGGER CHARACTER AREA */
@@ -32,19 +49,22 @@ h1 {
     position: relative;
     background: #fffcfd;
     border-radius: 30px;
-    padding: 20px;
-    margin-bottom: 25px;
+    height: 55vh; /* Larger area for the character */
     border: 4px dashed #ffd6eb;
-    overflow: hidden; /* Keeps the floating items inside the box */
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.character-scaler {
+    transform: scale(1.6); /* This makes Moonie much bigger! */
 }
 
 .character {
     position: relative;
-    width: 260px; 
-    height: 340px;
-    margin: 0 auto;
-    transform: scale(1.2); /* 20% Bigger */
-    z-index: 2;
+    width: 200px;
+    height: 250px;
 }
 
 .layer {
@@ -55,73 +75,63 @@ h1 {
     image-rendering: pixelated;
 }
 
-/* Yellow Twinkling Stars */
-.star {
+/* Yellow Stars & Flower Twinkles */
+.star, .twinkle-flower {
     position: absolute;
-    color: #ffe135;
-    font-size: 18px;
-    text-shadow: 0 0 10px #fff;
-    animation: twinkle 1.5s infinite ease-in-out;
+    z-index: 10;
+    animation: twinkleAnim 2s infinite ease-in-out;
 }
 
-.s1 { top: 10%; left: 10%; }
-.s2 { top: 20%; right: 10%; animation-delay: 0.4s; }
-.s3 { bottom: 20%; left: 15%; animation-delay: 0.8s; }
-.s4 { bottom: 10%; right: 15%; animation-delay: 1.2s; }
+.star { color: #ffe135; font-size: 20px; }
+.twinkle-flower { font-size: 22px; }
 
-/* Floating Animated Flowers */
-.floating-flower {
-    position: absolute;
-    font-size: 22px;
-    z-index: 1;
-    animation: float 3s infinite ease-in-out;
+/* Fixed positions so they don't line up weirdly */
+.s1 { top: 10%; left: 10%; animation-delay: 0s; }
+.s2 { top: 15%; right: 10%; animation-delay: 0.5s; }
+.f1 { bottom: 20%; left: 15%; animation-delay: 1s; }
+.f2 { bottom: 10%; right: 15%; animation-delay: 1.5s; }
+.s3 { top: 40%; left: 5%; animation-delay: 0.2s; }
+.f3 { top: 60%; right: 5%; animation-delay: 0.8s; }
+
+@keyframes twinkleAnim {
+    0%, 100% { opacity: 0.2; transform: scale(0.8) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.2) rotate(20deg); }
 }
 
-.f1 { top: 5%; right: 20%; animation-delay: 0s; }
-.f2 { top: 40%; left: 5%; animation-delay: 1s; }
-.f3 { bottom: 30%; right: 5%; animation-delay: 1.5s; }
-.f4 { top: 60%; left: 10%; animation-delay: 2s; }
-
-@keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.6; }
-    50% { transform: translateY(-20px) rotate(20deg) scale(1.2); opacity: 1; }
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
 }
 
-@keyframes twinkle {
-    0%, 100% { opacity: 0.3; transform: scale(0.8); }
-    50% { opacity: 1; transform: scale(1.1); }
-}
-
-/* BUTTON CONTROLS - FIXED ALIGNMENT */
+/* ALIGNED & UPPED BUTTONS */
 .controls {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding-bottom: 10px;
+    gap: 8px;
 }
 
 .row {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    width: 90%;
-    margin: 0 auto;
+    background: #fff3f8;
+    border-radius: 20px;
+    padding: 5px;
 }
 
 button {
     background: #ffb7df;
     border: 3px solid #ffffff;
-    width: 50px;
-    height: 50px;
-    border-radius: 18px;
+    width: 45px;
+    height: 45px;
+    border-radius: 15px;
     cursor: pointer;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     box-shadow: 0 4px 0 #ff8fcf;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 0.1s;
 }
 
 button:active {
@@ -130,8 +140,8 @@ button:active {
 }
 
 .label {
-    font-size: 11px;
+    font-size: 10px;
     color: #ff69b4;
     font-weight: bold;
-    flex-grow: 1; /* Makes the text take up the middle space */
+    min-width: 80px;
 }
