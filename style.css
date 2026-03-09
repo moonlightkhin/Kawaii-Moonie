@@ -19,7 +19,7 @@ body {
 }
 
 h1 {
-    font-size: 14px;
+    font-size: 18px;
     color: #ff4fa3;
     margin-bottom: 20px;
 }
@@ -72,4 +72,5 @@ span {
     font-size: 10px;
     color: #ff4fa3;
     width: 80px;
+
 }
