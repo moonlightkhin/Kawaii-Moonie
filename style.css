@@ -6,43 +6,51 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden; /* Prevents scrolling */
 }
 
 .app {
     background: white;
-    padding: 30px;
-    border-radius: 50px;
+    padding: 20px;
+    border-radius: 40px;
     text-align: center;
-    border: 8px solid #ffb7df;
+    border: 6px solid #ffb7df;
     position: relative;
-    width: 340px;
-    box-shadow: 0 15px 30px rgba(255, 105, 180, 0.2);
+    width: 320px;
+    /* This moves the whole app slightly up to avoid the browser bottom bar */
+    margin-bottom: 50px; 
+    box-shadow: 0 10px 0px #ffb7df;
 }
 
-/* Title Styling */
 h1 {
-    font-size: 14px;
+    font-size: 12px;
     color: #ff69b4;
-    margin: 10px 0 20px 0;
-    line-height: 1.5;
+    margin: 10px 0 5px 0;
+    text-transform: uppercase;
 }
 
-/* The World Frame */
+.sparkle-title {
+    color: #ffd700;
+    font-size: 10px;
+    margin-bottom: 15px;
+}
+
+/* Character Frame - Slightly smaller to fit screen better */
 .character-container {
     position: relative;
-    background: #fff9fb;
-    border-radius: 35px;
-    padding: 15px;
-    margin-bottom: 25px;
-    border: 3px dashed #ffc0e0;
+    background: #fffcfd;
+    border-radius: 30px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 4px dashed #ffd6eb;
+    display: flex;
+    justify-content: center;
 }
 
 .character {
     position: relative;
-    width: 250px;
-    height: 320px;
-    margin: 0 auto;
+    width: 220px;
+    height: 280px;
 }
 
 .layer {
@@ -50,38 +58,58 @@ h1 {
     width: 100%;
     left: 0;
     top: 0;
+    image-rendering: pixelated; /* Makes pixel art look sharp */
 }
 
-/* Twinkling Stars */
+/* Yellow Twinkling Stars */
 .star {
     position: absolute;
-    color: #ffcc00;
-    font-size: 18px;
-    filter: drop-shadow(0 0 5px #fff);
-    animation: twinkle 2s infinite ease-in-out;
+    color: #ffe135; /* Bright Yellow */
+    font-size: 16px;
+    text-shadow: 0 0 8px rgba(255, 225, 53, 0.8);
+    animation: twinkle 1.5s infinite ease-in-out;
     z-index: 5;
 }
 
-.s1 { top: 10%; left: 10%; animation-delay: 0s; }
-.s2 { top: 15%; right: 10%; animation-delay: 0.5s; }
-.s3 { bottom: 25%; left: 5%; animation-delay: 1s; }
-.s4 { bottom: 35%; right: 8%; animation-delay: 1.5s; }
+.s1 { top: 5%; left: 5%; }
+.s2 { top: 15%; right: 5%; animation-delay: 0.3s; }
+.s3 { bottom: 10%; left: 8%; animation-delay: 0.6s; }
+.s4 { bottom: 20%; right: 10%; animation-delay: 0.9s; }
+.s5 { top: 40%; left: -5%; animation-delay: 1.2s; }
+.s6 { top: 50%; right: -5%; animation-delay: 1.5s; }
 
-@keyframes twinkle {
-    0%, 100% { opacity: 0.3; transform: scale(0.8); }
-    50% { opacity: 1; transform: scale(1.2) rotate(15deg); }
+/* Twinkling Flowers */
+.flower-twinkle {
+    position: absolute;
+    font-size: 20px;
+    animation: flowerPulse 2s infinite ease-in-out;
 }
 
-/* Button Controls */
+.ft1 { top: -15px; left: -15px; }
+.ft2 { top: -15px; right: -15px; animation-delay: 0.5s; }
+.ft3 { bottom: -15px; left: -15px; animation-delay: 1s; }
+.ft4 { bottom: -15px; right: -15px; animation-delay: 1.5s; }
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(0.7); }
+    50% { opacity: 1; transform: scale(1.1) rotate(10deg); }
+}
+
+@keyframes flowerPulse {
+    0%, 100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.2); filter: brightness(1.2); }
+}
+
+/* Perfectly Aligned Controls */
 .controls {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
 }
 
 .row {
     display: grid;
-    grid-template-columns: 50px 100px 50px; /* Forces perfect vertical alignment */
+    grid-template-columns: 45px 100px 45px; /* Keeps everything locked in place */
     align-items: center;
     justify-content: center;
 }
@@ -89,23 +117,17 @@ h1 {
 button {
     background: #ffb7df;
     border: 3px solid #ffffff;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px; /* Pixel-game rounded square style */
     cursor: pointer;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 0 #ff8fcf;
-    transition: all 0.1s ease;
-    padding: 0;
-}
-
-button:hover {
-    background: #ff8fcf;
-    transform: translateY(-2px);
+    transition: 0.1s;
 }
 
 button:active {
@@ -117,14 +139,5 @@ button:active {
     font-size: 10px;
     color: #ff69b4;
     font-weight: bold;
+    letter-spacing: 1px;
 }
-
-/* Corner Flowers */
-.flower {
-    position: absolute;
-    font-size: 22px;
-}
-.tl { top: -10px; left: -10px; }
-.tr { top: -10px; right: -10px; }
-.bl { bottom: -10px; left: -10px; }
-.br { bottom: -10px; right: -10px; }
