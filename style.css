@@ -7,64 +7,42 @@ body {
     align-items: center;
     height: 100vh;
     overflow: hidden;
-    position: relative;
-}
-
-/* Twinkling Stars */
-.star {
-    position: absolute;
-    background: white;
-    border-radius: 50%;
-    opacity: 0;
-    animation: twinkle 3s infinite ease-in-out;
-}
-
-/* Different Star Sizes & Positions */
-.s1 { width: 4px; height: 4px; top: 20%; left: 10%; animation-delay: 0s; }
-.s2 { width: 8px; height: 8px; top: 70%; left: 80%; animation-delay: 1s; }
-.s3 { width: 6px; height: 6px; top: 40%; left: 90%; animation-delay: 1.5s; }
-.s4 { width: 10px; height: 10px; top: 80%; left: 15%; animation-delay: 0.5s; }
-
-@keyframes twinkle {
-    0%, 100% { opacity: 0; transform: scale(0.5); }
-    50% { opacity: 1; transform: scale(1.2); }
 }
 
 .app {
-    background: #fff0f7;
-    padding: 40px;
-    border-radius: 40px;
+    background: white;
+    padding: 30px;
+    border-radius: 50px;
     text-align: center;
-    box-shadow: 0 15px 0px #ffb7df; /* 3D effect shadow */
-    border: 6px solid #ffffff;
+    border: 8px solid #ffb7df;
     position: relative;
+    width: 340px;
+    box-shadow: 0 15px 30px rgba(255, 105, 180, 0.2);
 }
 
-/* Flower Elements */
-.flower {
-    position: absolute;
-    font-size: 24px;
-}
-.tl { top: -15px; left: -15px; }
-.tr { top: -15px; right: -15px; }
-.bl { bottom: -15px; left: -15px; }
-.br { bottom: -15px; right: -15px; }
-
+/* Title Styling */
 h1 {
-    font-size: 18px; /* Slightly bigger */
-    color: #ff4fa3;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px white;
+    font-size: 14px;
+    color: #ff69b4;
+    margin: 10px 0 20px 0;
+    line-height: 1.5;
+}
+
+/* The World Frame */
+.character-container {
+    position: relative;
+    background: #fff9fb;
+    border-radius: 35px;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 3px dashed #ffc0e0;
 }
 
 .character {
     position: relative;
-    width: 300px;
-    height: 400px;
-    margin: 0 auto 30px auto;
-    background: white;
-    border-radius: 30px;
-    border: 4px dashed #ffc0e0;
+    width: 250px;
+    height: 320px;
+    margin: 0 auto;
 }
 
 .layer {
@@ -74,32 +52,79 @@ h1 {
     top: 0;
 }
 
-/* Cuter Buttons */
-button {
-    background: #ff8fcf;
-    border: 4px solid #ffffff;
-    padding: 12px 18px;
-    border-radius: 20px;
-    font-size: 16px; /* Bigger arrows */
-    cursor: pointer;
-    color: white;
-    font-family: 'Press Start 2P', cursive;
-    box-shadow: 0 5px 0px #ff4fa3;
-    transition: all 0.1s;
+/* Twinkling Stars */
+.star {
+    position: absolute;
+    color: #ffcc00;
+    font-size: 18px;
+    filter: drop-shadow(0 0 5px #fff);
+    animation: twinkle 2s infinite ease-in-out;
+    z-index: 5;
 }
 
-button:active {
-    box-shadow: 0 2px 0px #ff4fa3;
-    transform: translateY(3px);
+.s1 { top: 10%; left: 10%; animation-delay: 0s; }
+.s2 { top: 15%; right: 10%; animation-delay: 0.5s; }
+.s3 { bottom: 25%; left: 5%; animation-delay: 1s; }
+.s4 { bottom: 35%; right: 8%; animation-delay: 1.5s; }
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2) rotate(15deg); }
+}
+
+/* Button Controls */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 50px 100px 50px; /* Forces perfect vertical alignment */
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    background: #ffb7df;
+    border: 3px solid #ffffff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 0 #ff8fcf;
+    transition: all 0.1s ease;
+    padding: 0;
 }
 
 button:hover {
-    background: #ff4fa3;
+    background: #ff8fcf;
+    transform: translateY(-2px);
 }
 
-span {
-    font-size: 14px; /* Slightly bigger font */
-    color: #ff4fa3;
-    width: 100px;
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #ff8fcf;
+}
+
+.label {
+    font-size: 10px;
+    color: #ff69b4;
     font-weight: bold;
 }
+
+/* Corner Flowers */
+.flower {
+    position: absolute;
+    font-size: 22px;
+}
+.tl { top: -10px; left: -10px; }
+.tr { top: -10px; right: -10px; }
+.bl { bottom: -10px; left: -10px; }
+.br { bottom: -10px; right: -10px; }

@@ -3,54 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kawaii Dress Up</title>
+    <title>Moonie Dress Up ✨</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="star-container">
-    <div class="star s1"></div>
-    <div class="star s2"></div>
-    <div class="star s3"></div>
-    <div class="star s4"></div>
-</div>
-
 <div class="app">
     <div class="flower tl">🌸</div>
     <div class="flower tr">🌸</div>
-    <h1>Dress Up Moonie ✨</h1>
+    <div class="flower bl">🌸</div>
+    <div class="flower br">🌸</div>
 
-    <div class="character">
-        <img src="base.png" class="layer">        
-        <img id="shoes" src="shoes1.png" class="layer">
-        <img id="dress" src="dress1.png" class="layer">
-        <img id="hat" src="hat1.png" class="layer">
+    <h1>Moonie's Closet ✨</h1>
+
+    <div class="character-container">
+        <div class="star s1">★</div>
+        <div class="star s2">✦</div>
+        <div class="star s3">★</div>
+        <div class="star s4">✦</div>
+
+        <div class="character">
+            <img src="base.png" class="layer">        
+            <img id="shoes" src="shoes1.png" class="layer">
+            <img id="dress" src="dress1.png" class="layer">
+            <img id="hat" src="hat1.png" class="layer">
+        </div>
     </div>
 
     <div class="controls">
         <div class="row">
-            <button onclick="prevHat()">◀</button>
-            <span>Hat</span>
-            <button onclick="nextHat()">▶</button>
+            <button onclick="prevHat()">❮</button>
+            <span class="label">HAT</span>
+            <button onclick="nextHat()">❯</button>
         </div>
 
         <div class="row">
-            <button onclick="prevDress()">◀</button>
-            <span>Dress</span>
-            <button onclick="nextDress()">▶</button>
+            <button onclick="prevDress()">❮</button>
+            <span class="label">DRESS</span>
+            <button onclick="nextDress()">❯</button>
         </div>
 
         <div class="row">
-            <button onclick="prevShoes()">◀</button>
-            <span>Shoes</span>
-            <button onclick="nextShoes()">▶</button>
-        </div>
-    </div>
-    <div class="flower bl">🌸</div>
-    <div class="flower br">🌸</div>
-</div>
-
-<script src="script.js"></script>
-</body>
-</html>
+            <button onclick="prevShoes()">❮</button>
+            <span class="label">SHOES</span>
+            <button onclick="
