@@ -1,47 +1,37 @@
-// --- 1. CONFIGURATION & STATE ---
+// --- 1. SETTINGS & STARTING POINT ---
 let hatIndex = 1;
 let dressIndex = 1;
 let shoesIndex = 1;
 let isPlaying = false;
 
-// Maximum number of images you have for each category
+// Set these to match the number of files you uploaded to GitHub
 const MAX_HATS = 9;
 const MAX_DRESSES = 9;
 const MAX_SHOES = 4;
 
-// --- 2. MUSIC LOGIC ---
+// --- 2. MUSIC CONTROL ---
 const music = document.getElementById("bg-music");
 const musicBtn = document.getElementById("music-btn");
 
-/**
- * Handles the Play/Pause functionality for background music
- */
 function toggleMusic() {
     if (isPlaying) {
         music.pause();
         musicBtn.innerText = "🎵 OFF";
-        console.log("Music paused");
     } else {
-        // We use a promise check because browsers often block audio 
-        // until the user interacts with the page.
-        music.play()
-            .then(() => {
-                musicBtn.innerText = "🎵 ON";
-                console.log("Music playing!");
-            })
-            .catch(error => {
-                console.error("Music playback failed. Check if 'music.mp3' exists in your folder!", error);
-                alert("Please make sure you have uploaded 'music.mp3' to your GitHub folder!");
-            });
+        // Browsers require a click to play music, so we handle it here
+        music.play().then(() => {
+            musicBtn.innerText = "🎵 ON";
+        }).catch(err => {
+            console.log("Music file missing or blocked by browser.");
+            alert("Make sure you uploaded 'music.mp3' to your folder!");
+        });
     }
     isPlaying = !isPlaying;
 }
 
-// --- 3. CLOTHING LOGIC ---
+// --- 3. DRESS UP LOGIC ---
 
-/**
- * Helper function to update the image source path
- */
+// Helper function to swap the images
 function updateImage(id, category, index) {
     const element = document.getElementById(id);
     if (element) {
@@ -49,7 +39,7 @@ function updateImage(id, category, index) {
     }
 }
 
-// Hat Functions
+// Hat Buttons
 function nextHat() {
     hatIndex = (hatIndex % MAX_HATS) + 1;
     updateImage("hat", "hat", hatIndex);
@@ -59,7 +49,7 @@ function prevHat() {
     updateImage("hat", "hat", hatIndex);
 }
 
-// Dress Functions
+// Dress Buttons
 function nextDress() {
     dressIndex = (dressIndex % MAX_DRESSES) + 1;
     updateImage("dress", "dress", dressIndex);
@@ -69,7 +59,7 @@ function prevDress() {
     updateImage("dress", "dress", dressIndex);
 }
 
-// Shoes Functions
+// Shoes Buttons
 function nextShoes() {
     shoesIndex = (shoesIndex % MAX_SHOES) + 1;
     updateImage("shoes", "shoes", shoesIndex);
