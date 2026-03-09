@@ -12,13 +12,19 @@ const musicBtn = document.getElementById("music-btn");
 music.loop = true;
 
 function toggleMusic() {
+    if (music.readyState === 0) {
+        music.load();
+    }
+
     if (isPlaying) {
         music.pause();
         musicBtn.innerText = "🎵 OFF";
     } else {
         music.play().then(() => {
             musicBtn.innerText = "🎵 ON";
-        }).catch(err => console.log("Music blocked or missing"));
+        }).catch(err => {
+            console.log(err);
+        });
     }
     isPlaying = !isPlaying;
 }
@@ -27,14 +33,14 @@ function savePhoto() {
     const container = document.getElementById("capture-area");
     const mBtn = document.getElementById("music-btn");
 
-    mBtn.style.display = "none"; // Hide button for the photo
+    mBtn.style.display = "none";
 
     html2canvas(container, {
         backgroundColor: "#fffcfd",
-        scale: 3, // High resolution
-        useCORS: true // Helps with loading images
+        scale: 3,
+        useCORS: true
     }).then(canvas => {
-        mBtn.style.display = "block"; // Show button back
+        mBtn.style.display = "block";
         const link = document.createElement("a");
         link.download = "my-moonie.png";
         link.href = canvas.toDataURL("image/png");
