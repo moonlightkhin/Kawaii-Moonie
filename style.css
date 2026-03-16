@@ -44,7 +44,7 @@ body {
 
 .character-scaler {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.2);
     transform-origin: center center;
