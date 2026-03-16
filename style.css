@@ -33,7 +33,7 @@ body {
     position: relative;
     background: #fffcfd;
     border-radius: 25px;
-    height: 42vh;
+    height: 52vh;
     border: 4px dashed #ffd6eb;
     margin-bottom: 12px;
     display: flex;
@@ -44,9 +44,9 @@ body {
 
 .character-scaler {
     position: absolute;
-    top: 55%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1.2);
+    transform: translate(-50%, -50%) scale(1.0);
     transform-origin: center center;
 }
 
